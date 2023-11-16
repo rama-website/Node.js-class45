@@ -1,11 +1,11 @@
 // __tests__/routes.test.js
-import routes from '../routes.js';
-import app from '../server.js'; // Import  Express app from server.js
+
+import app from '../routes.js'; // Import  Express app from server.js
 import supertest from 'supertest';
 import keys from '../sources/keys.js';
 
 
-const request = supertest(routes);
+const request = supertest(app);
 
 describe('POST /weather', () => {
   it('Should return city name and temperature if city is found', async () => {
@@ -34,4 +34,6 @@ describe('POST /weather', () => {
     expect(response.status).toBe(500);
     expect(response.text).toContain('Failed to fetch weather data');
   });
-});
+}10000);
+
+

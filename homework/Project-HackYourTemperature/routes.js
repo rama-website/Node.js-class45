@@ -1,9 +1,11 @@
 // routes.js
 import { Router } from 'express';
+import Express from 'express';
 import { json } from 'express';
 import keys from './sources/keys.js';
 
 const router = Router();
+
 
 router.use(json());
 
@@ -25,15 +27,15 @@ router.post('/weather', async (req, res) => {
       const data = await response.json();
 
       if (data.cod === '404') {
-        res.status(404).send({ weatherText: 'City is not found!' });
+       return res.status(404).send({ weatherText: 'City is not found!' });
       } else {
         const temperature = data.main.temp;
-        res.send(`${cityName} is the city, and the current temperature is ${temperature}°C.`);
+       return res.send(`${cityName} is the city, and the current temperature is ${temperature}°C.`);
       }
     } catch (error) {
       res.status(500).send('Failed to fetch weather data');
     }
   }
 });
-
+ 
 export default router;
