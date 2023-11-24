@@ -1,13 +1,15 @@
 // routes.js
 import { Router } from 'express';
-import Express from 'express';
-import { json } from 'express';
+import Express from "express";
 import keys from './sources/keys.js';
+import { json } from 'express';
+
 
 const router = Router();
 
+const app = Express();
+app.use(json());
 
-router.use(json());
 
 router.get('/', (req, res) => {
   res.send('Hello from backend to frontend');
@@ -37,5 +39,5 @@ router.post('/weather', async (req, res) => {
     }
   }
 });
- 
-export default router;
+app.use("/", router);
+export default app;

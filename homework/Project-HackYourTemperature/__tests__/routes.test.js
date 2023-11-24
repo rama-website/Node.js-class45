@@ -30,10 +30,10 @@ describe('POST /weather', () => {
 
   it('Should return an error message for server errors', async () => {
     // Mock an error by using a wrong API key in your keys.js
-    const response = await request.post('/weather').send({ cityName: 'London' });
+    const response = await request.post('/weather').send({ cityName: 'London&APPID=1234' });
     expect(response.status).toBe(500);
     expect(response.text).toContain('Failed to fetch weather data');
   });
-}10000);
+});
 
 

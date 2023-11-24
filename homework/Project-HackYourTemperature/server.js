@@ -1,12 +1,12 @@
 //server.js
-import Express from 'express';
-import { json } from 'express';
+import app from "./routes.js";
+
 
 import routes from './routes.js';
 import fetch from 'node-fetch';
 
-const app = Express();
-app.use(json());
+// const app = express();
+// app.use(express.json());
 
 
 
